@@ -115,9 +115,13 @@ module RetinaRails
               style.to_s.end_with?('_retina') ? '@2x' : ''
             end
 
-            ## Make default url compatible with retina optimzer
+            ## Make default url compatible with retina optimizer
             url = ::Paperclip::Attachment.default_options[:url]
             ::Paperclip::Attachment.default_options[:url] = optimize_path(url)
+
+            ## Make default path compatible with retina optimizer
+            url = ::Paperclip::Attachment.default_options[:path]
+            ::Paperclip::Attachment.default_options[:path] = optimize_path(path)
 
           end
 
